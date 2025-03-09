@@ -49,6 +49,7 @@ dependencies:
   gap: ^3.0.1
   # flutter_bloc for state management
   flutter_bloc: ^8.1.4
+  intl: ^0.20.2
 dev_dependencies:
   flutter_test:
     sdk: flutter

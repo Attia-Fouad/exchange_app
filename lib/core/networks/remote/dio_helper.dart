@@ -22,7 +22,7 @@ class DioHelper {
     //     maxWidth: 90));
   }
 
-   getData({
+  getData({
     required String url,
     String? lang,
     query,
@@ -40,7 +40,7 @@ class DioHelper {
     );
   }
 
-   postData({
+  postData({
     required String url,
     String? lang,
     query,
@@ -58,7 +58,7 @@ class DioHelper {
     );
   }
 
-   patchData({
+  patchData({
     required String url,
     query,
     data,
@@ -71,7 +71,7 @@ class DioHelper {
     );
   }
 
-   deleteData({
+  deleteData({
     required String url,
     String? lang,
     query,
@@ -85,7 +85,7 @@ class DioHelper {
     );
   }
 
-   putData({
+  putData({
     required String url,
     String? lang,
     query,

@@ -9,12 +9,13 @@ final sl = GetIt.instance;
 class ServicesLocator {
   void init() {
     // cubits
-    sl.registerFactory(() => HomeCubit(exchangeRateRepo: sl<ExchangeRateRepo>(),));
+    sl.registerFactory(() => HomeCubit(
+          exchangeRateRepo: sl<ExchangeRateRepo>(),
+        ));
 
     //Repository
-    sl.registerLazySingleton<ExchangeRateRepo>(() => ExchangeRateRepoImpl(dioHelper: sl<DioHelper>()));
-
-
+    sl.registerLazySingleton<ExchangeRateRepo>(
+        () => ExchangeRateRepoImpl(dioHelper: sl<DioHelper>()));
 
     // dependencies
     sl.registerLazySingleton<DioHelper>(() => DioHelper());

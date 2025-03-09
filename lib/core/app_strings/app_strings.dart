@@ -1,4 +1,14 @@
 abstract class AppStrings {
+  static const date = 'Date';
+  static const from = 'From';
+  static const to = 'To';
+  static const price = 'Price';
+  static const startDate = 'Start Date';
+  static const endDate = 'End Date';
+  static const fromCurrency = 'From Currency';
+  static const toCurrency = 'To Currency';
+  static const submit = 'Submit';
+
   // request messages
   static const connectionTimeOut = 'Connection Time Out';
   static const sendTimeOut = 'Send Time Out';
@@ -11,5 +21,6 @@ abstract class AppStrings {
   static const serverProblem = 'Server Problem';
   static const emailAlreadyInUse = 'Email Already In Use';
   static const somethingWentWrong = 'Something Went Wrong';
-  static const sessionExpiredPleaseLoginAgain = 'Session Expired Please Login Again';
+  static const sessionExpiredPleaseLoginAgain =
+      'Session Expired Please Login Again';
 }

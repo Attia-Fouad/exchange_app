@@ -14,8 +14,11 @@ class ExchangeRateRepoImpl implements ExchangeRateRepo {
   ExchangeRateRepoImpl({required this.dioHelper});
 
   @override
-  Future<Either<Failure, List<ExchangeRateDataEntity>>>
-  getExchangeRate({required String startDate, required String endDate, required String baseCurrency, required String targetCurrency}) async {
+  Future<Either<Failure, List<ExchangeRateDataEntity>>> getExchangeRate(
+      {required String startDate,
+      required String endDate,
+      required String baseCurrency,
+      required String targetCurrency}) async {
     try {
       var response = await dioHelper.getData(
         url: ApiConstants.exchangeRate,
@@ -27,12 +30,10 @@ class ExchangeRateRepoImpl implements ExchangeRateRepo {
         },
       );
       if (response.statusCode == 200) {
-
-        ExchangeRateModel model=
-        ExchangeRateModel.fromJson(
-        json: response.data,
-      baseCurrency: baseCurrency,
-      targetCurrency: targetCurrency);
+        ExchangeRateModel model = ExchangeRateModel.fromJson(
+            json: response.data,
+            baseCurrency: baseCurrency,
+            targetCurrency: targetCurrency);
 
         return right(model.data);
       }

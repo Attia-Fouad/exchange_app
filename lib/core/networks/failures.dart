@@ -1,7 +1,6 @@
 import 'package:dio/dio.dart';
 import '../app_strings/app_strings.dart';
 
-
 abstract class Failure {
   final String message;
 
@@ -32,7 +31,8 @@ class ServerFailure extends Failure {
     }
   }
 
-  factory ServerFailure.fromResponse(int statusCode, Response<dynamic>? response) {
+  factory ServerFailure.fromResponse(
+      int statusCode, Response<dynamic>? response) {
     if (statusCode == 404) {
       return ServerFailure(AppStrings.yourRequestNotFound);
     } else if (statusCode == 500) {

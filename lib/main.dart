@@ -5,7 +5,6 @@ import 'core/networks/remote/dio_helper.dart';
 import 'core/services/services_locator.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // initialize dio helper
@@ -19,8 +18,6 @@ Future<void> main() async {
     const MyApp(),
   );
 }
-
-
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -37,4 +34,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-

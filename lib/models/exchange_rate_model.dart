@@ -5,20 +5,21 @@ class ExchangeRateModel {
   final String startDate;
   final String endDate;
   final String source;
-  // final Map<String, Map<String, double>> quotes;
   final List<ExchangeRateDataEntity> data;
 
- const ExchangeRateModel({
+  const ExchangeRateModel({
     required this.success,
     required this.startDate,
     required this.endDate,
     required this.source,
-    // required this.quotes,
     required this.data,
   });
 
-  factory ExchangeRateModel.fromJson({required Map<String, dynamic> json,
-    required String baseCurrency,required String targetCurrency,}) {
+  factory ExchangeRateModel.fromJson({
+    required Map<String, dynamic> json,
+    required String baseCurrency,
+    required String targetCurrency,
+  }) {
     return ExchangeRateModel(
       success: json["success"],
       startDate: json["start_date"],
@@ -27,31 +28,25 @@ class ExchangeRateModel {
       data: (json["quotes"] as Map<String, dynamic>)
           .entries
           .map((entry) {
-        final date = entry.key; // Extract date
-        final currencies = entry.value as Map<String, dynamic>;
-        final currencyValue = currencies["${baseCurrency.toUpperCase()}${targetCurrency.toUpperCase()}"]?.toDouble();
-        // Handle null values if currencyValue does not exist
-        if (currencyValue == null) return null;
+            final date = entry.key; // Extract date
+            final currencies = entry.value as Map<String, dynamic>;
+            final currencyValue = currencies[
+                    "${baseCurrency.toUpperCase()}${targetCurrency.toUpperCase()}"]
+                ?.toDouble();
+            // Handle null values if currencyValue does not exist
+            if (currencyValue == null) return null;
 
-        return ExchangeRateDataEntity(
-          date: date,
-          baseCurrency: baseCurrency.toUpperCase(),
-          targetCurrency: targetCurrency.toUpperCase(),
-          value: currencyValue.toString(), // Convert to String if needed
-        );
-      })
+            return ExchangeRateDataEntity(
+              date: date,
+              baseCurrency: baseCurrency.toUpperCase(),
+              targetCurrency: targetCurrency.toUpperCase(),
+              value: currencyValue.toString(), // Convert to String if needed
+            );
+          })
           .where((entry) => entry != null) // Remove null entries
-          .cast<ExchangeRateDataEntity>() // Ensure it's a List<ExchangeRateDataEntity>
+          .cast<
+              ExchangeRateDataEntity>() // Ensure it's a List<ExchangeRateDataEntity>
           .toList(),
-
-      // quotes: (json["quotes"] as Map<String, dynamic>).map((date, currencies) {
-      //   return MapEntry(
-      //     date,
-      //     (currencies as Map<String, dynamic>)
-      //         .map((key, value) => MapEntry(key, value.toDouble())),
-      //   );
-      // }),
     );
   }
-
 }
