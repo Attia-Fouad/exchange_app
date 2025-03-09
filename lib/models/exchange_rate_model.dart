@@ -17,7 +17,8 @@ class ExchangeRateModel {
     required this.data,
   });
 
-  factory ExchangeRateModel.fromJson(Map<String, dynamic> json) {
+  factory ExchangeRateModel.fromJson({required Map<String, dynamic> json,
+    required String baseCurrency,required String targetCurrency,}) {
     return ExchangeRateModel(
       success: json["success"],
       startDate: json["start_date"],
@@ -28,14 +29,14 @@ class ExchangeRateModel {
           .map((entry) {
         final date = entry.key; // Extract date
         final currencies = entry.value as Map<String, dynamic>;
-        final currencyValue = currencies["USDEGP"]?.toDouble();
+        final currencyValue = currencies["${baseCurrency.toUpperCase()}${targetCurrency.toUpperCase()}"]?.toDouble();
         // Handle null values if currencyValue does not exist
         if (currencyValue == null) return null;
 
         return ExchangeRateDataEntity(
           date: date,
-          baseCurrency: "USD",
-          targetCurrency: "EGP",
+          baseCurrency: baseCurrency.toUpperCase(),
+          targetCurrency: targetCurrency.toUpperCase(),
           value: currencyValue.toString(), // Convert to String if needed
         );
       })

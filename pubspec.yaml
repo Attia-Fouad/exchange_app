@@ -34,7 +34,21 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
-
+  # to show simple Toast
+  fluttertoast: ^8.2.4
+  # handling http requests
+  dio: ^5.4.1
+  pretty_dio_logger: ^1.4.0
+  # equatable for comparing objects
+  equatable: ^2.0.7
+  # dartz for functional programming
+  dartz: ^0.10.1
+  # get_it for dependency injection
+  get_it: ^8.0.0
+  # gap for spacing
+  gap: ^3.0.1
+  # flutter_bloc for state management
+  flutter_bloc: ^8.1.4
 dev_dependencies:
   flutter_test:
     sdk: flutter
