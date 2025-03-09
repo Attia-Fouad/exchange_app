@@ -2,15 +2,36 @@
 
 A new Flutter project.
 
-## Getting Started
+Setup Instructions
 
-This project is a starting point for a Flutter application.
+Install dependencies:
+flutter pub get
 
-A few resources to get you started if this is your first Flutter project:
+Run the app:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+flutter run
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+note
+the api does not support pagination
+
+Project Structure
+
+├───lib
+│   ├───core
+│   │   ├───app_strings
+│   │   ├───bloc_helper
+│   │   ├───networks
+│   │   │   └───remote
+│   │   ├───services
+│   │   └───styles
+│   ├───models
+│   ├───repositories
+│   │   ├───exchange_rate_repo
+│   └───view
+│       ├───home
+│       │   └───cubit
+│       │   └───widgets
+
+
+
